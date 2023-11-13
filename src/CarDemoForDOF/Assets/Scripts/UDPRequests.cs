@@ -14,7 +14,9 @@ public class UDPRequests
 
     public void Write(byte[] bytes)
     {
-        Debug.Log(Encoding.ASCII.GetString(bytes));
-        // _udpClient.Send(bytes, bytes.Length);
+#if UNITY_EDITOR
+        // Debug.Log(Encoding.ASCII.GetString(bytes));
+#endif
+        _udpClient.Send(bytes, bytes.Length);
     }
 }
